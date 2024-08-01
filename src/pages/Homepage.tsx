@@ -1,6 +1,7 @@
 import logo from "../assets/image/logo.jpg";
 import minimal from "../assets/image/Minimal Shopping.jpg";
 import hero from "../assets/image/hero-section.jpg";
+import Products from "../components/products";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
         <section>
           <img className="object-contain rounded-lg w-full" src={hero} alt="Hero" />
         </section>
+        <Products />
       </main>
     </>
   );
