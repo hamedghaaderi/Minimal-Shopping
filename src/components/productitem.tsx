@@ -19,7 +19,7 @@ const ProductItem = ({
 }: IProductItem) => {
   return (
     <>
-      <div className="inline-block">
+      <div className="inline-block mb-8">
         <div>
           <img src={src} alt="Product" width="320" height= "320" className="rounded-2xl" />
         </div>
