@@ -5,7 +5,7 @@ import hero from "../assets/image/hero-section.jpg";
 const HomePage = () => {
   return (
     <>
-      <header className="bg-back flex justify-between items-center sticky top-0 p-8">
+      <header className="bg-back flex justify-between items-center sticky z-10 top-0 p-8">
         <div className="flex justify-between items-center w-21r">
           <img className="object-contain" src={logo} alt="Logo" />
           <img className="object-contain" src={minimal} alt="Minimal" />
