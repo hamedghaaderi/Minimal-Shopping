@@ -31,6 +31,7 @@ const Products = () => {
                 quality={product.quality}
                 kind={product.kind}
                 src={product.imageURL}
+                id={product.id}
               />
             );
           })}
