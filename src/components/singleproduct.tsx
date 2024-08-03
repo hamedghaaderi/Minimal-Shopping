@@ -1,4 +1,7 @@
 import useSingleProduct from "../hook/singleproduct";
+import useBasket from "../store/basket";
+import Add from "./add";
+import AddRemove from "./addremove";
 import CartIcon from "./icons/carticon";
 import CloseIcon from "./icons/closeicon";
 import StarIcon from "./icons/staricon";
@@ -10,8 +13,14 @@ interface ISingleProduct {
   id: number;
   open: boolean;
 }
+
 const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
   const { data, isError, isLoading } = useSingleProduct(id);
+  const { products } = useBasket((state: any) => state);
+  const isExist: boolean = products.some(
+    (_product: any) => _product.id === data?.data.id
+  );
+  const item = products.find((_product: any) => _product.id === data?.data.id);
   open && (document.body.style.overflow = "hidden");
   const handleClose = () => {
     document.getElementById("backdrop")?.classList.add("animate-opacityout");
@@ -82,12 +91,16 @@ const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
             </button>
           </div>
           <div className="flex items-center font-outfit justify-between">
-            <button className="px-3 py-2 rounded-xl text-white bg-orange text-base">
-              Add to cart
-            </button>
+            {isExist ? (
+              <AddRemove product={data?.data} />
+            ) : (
+              <Add product={data?.data} />
+            )}
             <div className="flex flex-row justify-between items-center">
               <CartIcon />
-              <span className="text-xl text-gray2 ml-2">56$</span>
+              <span className="text-xl text-gray2 ml-2">
+                {isExist ? item.quantity * data?.data.price : 0}$
+              </span>
             </div>
           </div>
         </div>
