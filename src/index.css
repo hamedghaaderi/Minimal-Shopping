@@ -47,6 +47,22 @@
       right: 100px;
     }
   }
+  @keyframes translateIn2 {
+    0% {
+      bottom: 25%;
+    }
+    100% {
+      bottom: 50%;
+    }
+  }
+  @keyframes translateOut2 {
+    0% {
+      bottom: 50%;
+    }
+    100% {
+      bottom: 25%;
+    }
+  }
 }
 
 ::-webkit-scrollbar {
