@@ -5,9 +5,14 @@ import Products from "../components/products";
 import CartIcon2 from "../components/icons/carticon2";
 import CartIcon3 from "../components/icons/carticon3";
 import useBasket from "../store/basket";
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import Cart from "../components/cart";
 
 const HomePage = () => {
+  const [showModal, setShowModal] = useState(false);
   const { products, invoice } = useBasket((state: any) => state);
+  !showModal && (document.body.style.overflow = "visible");
   let total = 0;
   products.map((_product: any) => {
     return (total += _product.quantity);
@@ -19,7 +24,7 @@ const HomePage = () => {
           <img className="object-contain" src={logo} alt="Logo" />
           <img className="object-contain" src={minimal} alt="Minimal" />
         </div>
-        <button className="font-outfit text-gray text-base">Cart</button>
+        <button  onClick={() => setShowModal(true)} className="font-outfit text-gray text-base">Cart</button>
       </header>
       <main className="bg-back px-8">
         <section>
@@ -47,6 +52,14 @@ const HomePage = () => {
           </div>
         </div>
       )}
+      {showModal &&
+        createPortal(
+          <Cart
+            open={showModal}
+            onClose={() => setShowModal(false)}
+          />,
+          document.body
+        )}
     </>
   );
 };

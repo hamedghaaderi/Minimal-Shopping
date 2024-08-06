@@ -7,7 +7,9 @@ export default {
         "outfit": "outfit"
       },
       height: {
-        "remain": "256.5px"
+        "remain": "256.5px",
+        "cart": "500px",
+        "cartdetail": "370.4px"
       },
       width: {
         "21r": "21rem"
