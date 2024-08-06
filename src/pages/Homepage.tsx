@@ -32,7 +32,7 @@ const HomePage = () => {
         <Products />
       </main>
       {total !== 0 && (
-        <div className="flex flex-row justify-between items-center px-8 bg-orange py-4 sticky bottom-0">
+        <div className="flex flex-row justify-between items-center px-8 bg-orange font-outfit py-4 sticky bottom-0">
           <div className="flex flex-row justify-between items-center">
             <CartIcon2 />
             <span className="text-xl text-white ml-2">
