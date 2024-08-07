@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Minimal Shopping
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online store where you can choose as many products as you want, see the total price of each product and its quantity, and find out if that product is in the shopping cart with a simple hover. You can also easily see the total price of all products, the amount of discount and other details of the selected products.
 
-Currently, two official plugins are available:
+This website is made using React.js, Vite and Typescript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies such as TailwindcCSS, Zustand, Axios, Json-server have been used in this project.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Install my-project with npm
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+  git clone git@github.com:hamedagha2304/Minimal-Shopping.git
+  npm install
+  npx json-server --watch data/db.json --port 3001
+  npm run dev
 ```
+    
+## Authors
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [@hamedagha2304](https://github.com/hamedagha2304)
+- [@sajaddehghani1907](https://github.com/sajaddehghani1907)

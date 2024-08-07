@@ -1,10 +1,18 @@
 const IsLoading = () => {
   return (
     <>
-      <div className="mx-auto my-0 w-20 h-20 rounded-percent border-dotted border-8 border-orange animate-loading mb-10"></div>
-      <h5 className="text-center font-outfit mt-5 text-gray text-3xl">
-        Loading ...
-      </h5>
+      <div className="bg-transparent backdrop-blur-sm bg-opacity-25 w-screen fixed left-0 top-0 z-30 h-screen flex items-center justify-center">
+        <div className="bg-back p-8 rounded-xl flex flex-col items-center">
+          <div className="font-outfit text-orange text-4xl font-medium">
+            Minimal <span className="text-red">Shop</span>ping
+          </div>
+          <div className="flex flex-row mt-7">
+            <div className="bg-orange rounded-percent h-3 w-3 animate-loading"></div>
+            <div className="bg-orange rounded-percent h-3 w-3 ml-2 animate-loading1"></div>
+            <div className="bg-orange rounded-percent h-3 w-3 ml-2 animate-loading2"></div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

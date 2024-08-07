@@ -17,7 +17,7 @@ const Products = () => {
 
   return (
     <>
-      <section className={isLoading || isError ? "h-remain pt-12" : "pt-16 pb-8 grid grid-rows-2rows grid-cols-4cols gap-32px"}>
+      <section className={isLoading || isError ? "h-remain" : "pt-16 flex flex-wrap justify-between"}>
         {isLoading && <Isloading />}
         {isError && <IsError />}
         {data?.data &&
@@ -31,6 +31,7 @@ const Products = () => {
                 quality={product.quality}
                 kind={product.kind}
                 src={product.imageURL}
+                id={product.id}
               />
             );
           })}
