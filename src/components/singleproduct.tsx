@@ -5,7 +5,6 @@ import AddRemove from "./addremove";
 import CartIcon from "./icons/carticon";
 import CloseIcon from "./icons/closeicon";
 import StarIcon from "./icons/staricon";
-import IsError from "./iserror";
 import IsLoading from "./isloading";
 
 interface ISingleProduct {
@@ -15,7 +14,7 @@ interface ISingleProduct {
 }
 
 const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
-  const { data, isError, isLoading } = useSingleProduct(id);
+  const { data, isLoading } = useSingleProduct(id);
   const { products } = useBasket((state: any) => state);
   const isExist: boolean = products.some(
     (_product: any) => _product.id === data?.data.id
@@ -32,23 +31,22 @@ const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
 
   return (
     <>
-      <div
-        className="bg-transparent backdrop-blur-sm bg-opacity-25 w-screen fixed top-0 z-30 h-screen flex items-center animate-opacityin"
-        id="backdrop"
-      >
+      {isLoading && <IsLoading />}
+      {data?.data && (
         <div
-          className="bg-white w-fit h-fit absolute right-5 flex flex-col p-3 rounded-xl animate-translatein"
-          id="container"
+          className="bg-transparent backdrop-blur-sm bg-opacity-25 w-screen fixed top-0 z-30 h-screen flex items-center animate-opacityin"
+          id="backdrop"
         >
-          <button
-            className="rounded-percent p-3 bg-back h-fit w-fit self-end transition-colors hover:bg-quantity"
-            onClick={handleClose}
+          <div
+            className="bg-white w-fit h-fit absolute right-5 flex flex-col p-3 rounded-xl animate-translatein"
+            id="container"
           >
-            <CloseIcon />
-          </button>
-          {isLoading && <IsLoading style="mb-1" />}
-          {isError && <IsError style="text-lg" />}
-          {data?.data && (
+            <button
+              className="rounded-percent p-3 bg-back h-fit w-fit self-end transition-colors hover:bg-quantity"
+              onClick={handleClose}
+            >
+              <CloseIcon />
+            </button>
             <div className="inline-block">
               <div>
                 <img
@@ -72,39 +70,39 @@ const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
                 </span>
               </div>
             </div>
-          )}
-          <div className="font-outfit flex flex-row items-center justify-between w-fit mb-6 mt-4">
-            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
-              S
-            </button>
-            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
-              M
-            </button>
-            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
-              L
-            </button>
-            <button className="border rounded-md py-2 px-3 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
-              XL
-            </button>
-            <button className="border rounded-md p-2 text-base border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
-              XXL
-            </button>
-          </div>
-          <div className="flex items-center font-outfit justify-between">
-            {isExist ? (
-              <AddRemove product={data?.data} />
-            ) : (
-              <Add product={data?.data} />
-            )}
-            <div className="flex flex-row justify-between items-center">
-              <CartIcon />
-              <span className="text-xl text-gray2 ml-2">
-                {isExist ? item.quantity * data?.data.price : 0}$
-              </span>
+            <div className="font-outfit flex flex-row items-center justify-between w-fit mb-6 mt-4">
+              <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
+                S
+              </button>
+              <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
+                M
+              </button>
+              <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
+                L
+              </button>
+              <button className="border rounded-md py-2 px-3 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
+                XL
+              </button>
+              <button className="border rounded-md p-2 text-base border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
+                XXL
+              </button>
+            </div>
+            <div className="flex items-center font-outfit justify-between">
+              {isExist ? (
+                <AddRemove product={data?.data} />
+              ) : (
+                <Add product={data?.data} />
+              )}
+              <div className="flex flex-row justify-between items-center">
+                <CartIcon />
+                <span className="text-xl text-gray2 ml-2">
+                  {isExist ? item.quantity * data?.data.price : 0}$
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

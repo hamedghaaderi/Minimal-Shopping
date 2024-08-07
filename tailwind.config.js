@@ -7,7 +7,7 @@ export default {
         "outfit": "outfit"
       },
       height: {
-        "remain": "256.5px",
+        "remain": "215px",
         "cart": "489px",
         "cartdetail": "391.4px"
       },
@@ -27,16 +27,18 @@ export default {
         "quantity": "#D9D9D9",
         "addhover": "#e67d00",
         "addremovehover": "#eaeaea",
-
+        "red": "#EB2563"
       },
       animation: {
-        "loading": "loading 3s cubic-bezier(0.52, 0.06, 0.32, 0.99) 0s infinite normal forwards",
         "opacityin": "opacityIn 0.3s",
         "opacityout": "opacityOut 0.3s",
         "translatein": "translateIn 0.3s",
         "translateout": "translateOut 0.3s",
         "translatein2": "translateIn2 0.3s",
-        "translateout2": "translateOut2 0.3s"
+        "translateout2": "translateOut2 0.3s",
+        "loading": "Loading 0.9s linear 0s infinite normal forwards",
+        "loading1": "Loading 0.9s linear 0.25s infinite normal forwards",
+        "loading2": "Loading 0.9s linear 0.5s infinite normal forwards"
       },
       borderRadius: {
         "percent": "100%"

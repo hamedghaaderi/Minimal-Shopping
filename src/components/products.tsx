@@ -17,9 +17,9 @@ const Products = () => {
 
   return (
     <>
-      <section className={isLoading || isError ? "h-remain pt-12" : "pt-16 flex flex-wrap justify-between"}>
-        {isLoading && <Isloading style="mb-10"/>}
-        {isError && <IsError style="text-3xl"/>}
+      <section className={isLoading || isError ? "h-remain" : "pt-16 flex flex-wrap justify-between"}>
+        {isLoading && <Isloading />}
+        {isError && <IsError />}
         {data?.data &&
           data?.data.map((product: IProduct) => {
             return (
