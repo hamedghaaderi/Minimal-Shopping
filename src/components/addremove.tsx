@@ -14,7 +14,7 @@ const AddRemove = ({ product }: IAdd) => {
   return (
     <div className="flex flex-row items-center justify-between rounded-xl border border-gray2">
       <button
-        className="p-3 border-r border-r-gray2"
+        className="p-3 border-r border-r-gray2 rounded-l-xl transition-colors hover:bg-addremovehover"
         onClick={() => remove(product)}
       >
         <RemoveIcon />
@@ -23,7 +23,7 @@ const AddRemove = ({ product }: IAdd) => {
         {item.quantity}
       </div>
       <button
-        className="p-3 border-l border-l-gray2"
+        className="p-3 border-l border-l-gray2 rounded-r-xl transition-colors hover:bg-addremovehover"
         onClick={() => add(product)}
       >
         <AddIcon />

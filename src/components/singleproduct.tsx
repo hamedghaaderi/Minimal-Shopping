@@ -41,7 +41,7 @@ const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
           id="container"
         >
           <button
-            className="rounded-percent p-3 bg-back h-fit w-fit self-end"
+            className="rounded-percent p-3 bg-back h-fit w-fit self-end transition-colors hover:bg-quantity"
             onClick={handleClose}
           >
             <CloseIcon />
@@ -74,19 +74,19 @@ const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
             </div>
           )}
           <div className="font-outfit flex flex-row items-center justify-between w-fit mb-6 mt-4">
-            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange focus:text-white focus:bg-orange">
+            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
               S
             </button>
-            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange focus:text-white focus:bg-orange">
+            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
               M
             </button>
-            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange focus:text-white focus:bg-orange">
+            <button className="border rounded-md py-2 px-4 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
               L
             </button>
-            <button className="border rounded-md py-2 px-3 text-base mr-2 border-orange text-orange focus:text-white focus:bg-orange">
+            <button className="border rounded-md py-2 px-3 text-base mr-2 border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
               XL
             </button>
-            <button className="border rounded-md p-2 text-base border-orange text-orange focus:text-white focus:bg-orange">
+            <button className="border rounded-md p-2 text-base border-orange text-orange transition-colors hover:bg-orange hover:text-white focus:text-white focus:bg-addhover">
               XXL
             </button>
           </div>

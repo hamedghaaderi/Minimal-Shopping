@@ -34,7 +34,7 @@ const ProductItem = ({
             alt="Product"
             width="320"
             height="320"
-            className="rounded-2xl"
+            className="rounded-2xl cursor-pointer"
             onClick={() => setShowModal(true)}
           />
         </div>

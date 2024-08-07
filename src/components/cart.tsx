@@ -47,7 +47,7 @@ const Cart = ({ open, onClose }: ICart) => {
           className="bg-white h-fit p-6 pt-3 flex flex-col items-center justify-between w-9/12 absolute left-1/2 bottom-1/2 translate-y-1/2 -translate-x-1/2 font-outfit rounded-2xl animate-translatein2"
         >
           <button
-            className="rounded-percent p-3 bg-back h-fit w-fit self-end"
+            className="rounded-percent p-3 bg-back h-fit w-fit self-end transition-colors hover:bg-quantity"
             onClick={handleClose}
           >
             <CloseIcon />

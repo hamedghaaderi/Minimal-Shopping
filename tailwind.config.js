@@ -24,7 +24,10 @@ export default {
         "orange": "#fe8a00",
         "transparent": "rgba(0 ,0 ,0 ,0.25)",
         "grayback": "rgba(123, 123, 123, 0.06)",
-        "quantity": "#D9D9D9"
+        "quantity": "#D9D9D9",
+        "addhover": "#e67d00",
+        "addremovehover": "#eaeaea",
+
       },
       animation: {
         "loading": "loading 3s cubic-bezier(0.52, 0.06, 0.32, 0.99) 0s infinite normal forwards",

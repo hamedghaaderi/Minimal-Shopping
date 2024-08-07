@@ -24,7 +24,12 @@ const HomePage = () => {
           <img className="object-contain" src={logo} alt="Logo" />
           <img className="object-contain" src={minimal} alt="Minimal" />
         </div>
-        <button  onClick={() => setShowModal(true)} className="font-outfit text-gray text-base">Cart</button>
+        <button
+          onClick={() => setShowModal(true)}
+          className="font-outfit text-gray text-base transition-all hover:bg-orange hover:text-white hover:px-3 hover:py-1 hover:rounded-lg focus:bg-orange focus:text-white focus:px-3 focus:py-1 focus:rounded-lg"
+        >
+          Cart
+        </button>
       </header>
       <main className="bg-back px-8">
         <section>
@@ -47,17 +52,15 @@ const HomePage = () => {
           <div className="flex flex-row justify-between items-center">
             <CartIcon3 />
             <span className="text-xl text-white ml-2">
-              {invoice.totalPrice}$
+              {invoice.totalPrice - invoice.totalDiscount}${" "}
+              <span className="ml-1 text-base">{"(With Discount)"}</span>
             </span>
           </div>
         </div>
       )}
       {showModal &&
         createPortal(
-          <Cart
-            open={showModal}
-            onClose={() => setShowModal(false)}
-          />,
+          <Cart open={showModal} onClose={() => setShowModal(false)} />,
           document.body
         )}
     </>
