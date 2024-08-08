@@ -5,16 +5,7 @@ import SingleProduct from "./singleproduct";
 import useBasket from "../store/basket";
 import GreenHover from "./greenhover";
 import GrayHover from "./grayhover";
-
-interface IProductItem {
-  name: string;
-  price: number;
-  rate: number;
-  quality: string;
-  kind: string;
-  src: string;
-  id: number;
-}
+import { IProduct, IProductQ } from "../types/interface";
 
 const ProductItem = ({
   name,
@@ -22,16 +13,14 @@ const ProductItem = ({
   quality,
   rate,
   kind,
-  src,
+  imageURL,
   id,
-}: IProductItem) => {
+}: IProduct) => {
   const [showModal, setShowModal] = useState(false);
   !showModal && (document.body.style.overflow = "visible");
   const [visible, setVisible] = useState(false);
   const { products } = useBasket((state: any) => state);
-  const isExist: boolean = products.some(
-    (_product: any) => _product.id === id
-  );
+  const isExist: boolean = products.some((_product: IProductQ) => _product.id === id);
 
   return (
     <>
@@ -44,7 +33,7 @@ const ProductItem = ({
             onMouseLeave={() => {
               setVisible(false);
             }}
-            src={src}
+            src={imageURL}
             alt="Product"
             width="320"
             height="320"

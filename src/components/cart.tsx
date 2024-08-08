@@ -1,4 +1,5 @@
 import useBasket from "../store/basket";
+import { IProductQ } from "../types/interface";
 import CartItem from "./cartitem";
 import CloseIcon from "./icons/closeicon";
 import ShieldIcon from "./icons/shieldicon";
@@ -9,22 +10,12 @@ interface ICart {
   onClose: () => void;
   open: boolean;
 }
-interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  rate: number;
-  quality: string;
-  kind: string;
-  imageURL: string;
-  quantity: number;
-}
 
 const Cart = ({ open, onClose }: ICart) => {
   const { products, invoice } = useBasket((state: any) => state);
   open && (document.body.style.overflow = "hidden");
   let total = 0;
-  products.map((_product: any) => {
+  products.map((_product: IProductQ) => {
     return (total += _product.quantity);
   });
   const handleClose = () => {
@@ -60,7 +51,7 @@ const Cart = ({ open, onClose }: ICart) => {
               {total === 0 && <NoCart />}
               {total !== 0 && (
                 <div className="overflow-auto h-cartdetail">
-                  {products.map((_product: IProduct) => {
+                  {products.map((_product: IProductQ) => {
                     return (
                       <CartItem
                         key={_product.id}
@@ -69,7 +60,7 @@ const Cart = ({ open, onClose }: ICart) => {
                         rate={_product.rate}
                         quality={_product.quality}
                         kind={_product.kind}
-                        src={_product.imageURL}
+                        imageURL={_product.imageURL}
                         quantity={_product.quantity}
                       />
                     );

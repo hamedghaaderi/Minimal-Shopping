@@ -7,7 +7,7 @@ interface ICartItem {
   rate: number;
   quality: string;
   kind: string;
-  src: string;
+  imageURL: string;
   quantity: number;
 }
 
@@ -17,7 +17,7 @@ const CartItem = ({
   quality,
   rate,
   kind,
-  src,
+  imageURL,
   quantity,
 }: ICartItem) => {
   return (
@@ -26,7 +26,7 @@ const CartItem = ({
         <div className="flex flex-row">
           <div className="relative">
             <img
-              src={src}
+              src={imageURL}
               alt="Product"
               height="93"
               width="96"

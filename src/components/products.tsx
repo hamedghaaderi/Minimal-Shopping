@@ -1,23 +1,21 @@
 import useProducts from "../hook/products";
+import { IProduct } from "../types/interface";
 import IsError from "./iserror";
 import Isloading from "./isloading";
 import ProductItem from "./productitem";
-interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  rate: number;
-  quality: string;
-  kind: string;
-  imageURL: string;
-}
 
 const Products = () => {
   const { isError, isLoading, data } = useProducts();
 
   return (
     <>
-      <section className={isLoading || isError ? "h-remain" : "pt-16 flex flex-wrap justify-between"}>
+      <section
+        className={
+          isLoading || isError
+            ? "h-remain"
+            : "pt-16 flex flex-wrap justify-between"
+        }
+      >
         {isLoading && <Isloading />}
         {isError && <IsError />}
         {data?.data &&
@@ -30,7 +28,7 @@ const Products = () => {
                 rate={product.rate}
                 quality={product.quality}
                 kind={product.kind}
-                src={product.imageURL}
+                imageURL={product.imageURL}
                 id={product.id}
               />
             );
