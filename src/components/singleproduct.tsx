@@ -1,5 +1,6 @@
 import useSingleProduct from "../hook/singleproduct";
 import useBasket from "../store/basket";
+import { IProductQ } from "../types/interface";
 import Add from "./add";
 import AddRemove from "./addremove";
 import CartIcon from "./icons/carticon";
@@ -17,9 +18,9 @@ const SingleProduct = ({ onClose, id, open }: ISingleProduct) => {
   const { data, isLoading } = useSingleProduct(id);
   const { products } = useBasket((state: any) => state);
   const isExist: boolean = products.some(
-    (_product: any) => _product.id === data?.data.id
+    (_product: IProductQ) => _product.id === data?.data.id
   );
-  const item = products.find((_product: any) => _product.id === data?.data.id);
+  const item = products.find((_product: IProductQ) => _product.id === data?.data.id);
   open && (document.body.style.overflow = "hidden");
   const handleClose = () => {
     document.getElementById("backdrop")?.classList.add("animate-opacityout");

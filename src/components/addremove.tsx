@@ -1,4 +1,5 @@
 import useBasket from "../store/basket";
+import { IProductQ } from "../types/interface";
 import RemoveIcon from "./icons/addicon";
 import AddIcon from "./icons/removeicon";
 
@@ -9,7 +10,7 @@ interface IAdd {
 const AddRemove = ({ product }: IAdd) => {
   const { add, remove } = useBasket((state: any) => state.action);
   const { products } = useBasket((state: any) => state);
-  const item = products.find((_product: any) => _product.id === product.id);
+  const item = products.find((_product: IProductQ) => _product.id === product.id);
 
   return (
     <div className="flex flex-row items-center justify-between rounded-xl border border-gray2">

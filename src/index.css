@@ -5,7 +5,7 @@
 @layer base {
   @font-face {
     font-family: "outfit";
-    src: url("./assets/font/Outfit-Regular.woff2") format("woff2");
+    src: url("../public/font/Outfit-Regular.woff2") format("woff2");
   }
   @keyframes opacityIn {
     0% {

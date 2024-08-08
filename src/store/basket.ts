@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { IProduct, IProductQ } from "../types/interface";
 
 const useBasket = create((set, get: () => any) => ({
   products: [],
@@ -7,9 +8,9 @@ const useBasket = create((set, get: () => any) => ({
     totalDiscount: 0,
   },
   action: {
-    add: (product: any) => {
+    add: (product: IProduct) => {
       const alreadyExist: boolean = get().products.some(
-        (_product: any) => _product.id === product.id
+        (_product: IProductQ) => _product.id === product.id
       );
       if (alreadyExist) {
         return set((oldBasket: any) => ({
@@ -18,7 +19,7 @@ const useBasket = create((set, get: () => any) => ({
             totalDiscount:
               (oldBasket.invoice.totalPrice + product.price) * 0.075,
           },
-          products: oldBasket.products.map((_product: any) => {
+          products: oldBasket.products.map((_product: IProductQ) => {
             if (_product.id === product.id) {
               return {
                 ...product,
@@ -39,9 +40,9 @@ const useBasket = create((set, get: () => any) => ({
         products: [...oldBasket.products, { ...product, quantity: 1 }],
       }));
     },
-    remove: (product: any) => {
+    remove: (product: IProduct) => {
       const shouldRemove = get().products.some(
-        (_product: any) => _product.quantity === 1 && _product.id === product.id
+        (_product: IProductQ) => _product.quantity === 1 && _product.id === product.id
       );
       if (shouldRemove) {
         return set((oldBasket: any) => ({
@@ -51,7 +52,7 @@ const useBasket = create((set, get: () => any) => ({
             (oldBasket.invoice.totalPrice - product.price) * 0.075,
           },
           products: oldBasket.products.filter(
-            (_product: any) => _product.id !== product.id
+            (_product: IProductQ) => _product.id !== product.id
           ),
         }));
       }
@@ -62,7 +63,7 @@ const useBasket = create((set, get: () => any) => ({
           totalDiscount:
           (oldBasket.invoice.totalPrice - product.price) * 0.075,
         },
-        products: oldBasket.products.map((_product: any) => {
+        products: oldBasket.products.map((_product: IProductQ) => {
           if (_product.id === product.id) {
             return {
               ...product,

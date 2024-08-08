@@ -1,6 +1,6 @@
-import logo from "../assets/image/logo.jpg";
-import minimal from "../assets/image/Minimal Shopping.jpg";
-import hero from "../assets/image/hero-section.jpg";
+import logo from "../../public/image/logo.jpg";
+import minimal from "../../public/image/Minimal Shopping.jpg";
+import hero from "../../public/image/hero-section.jpg";
 import Products from "../components/products";
 import CartIcon2 from "../components/icons/carticon2";
 import CartIcon3 from "../components/icons/carticon3";
@@ -8,13 +8,14 @@ import useBasket from "../store/basket";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import Cart from "../components/cart";
+import { IProductQ } from "../types/interface";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const { products, invoice } = useBasket((state: any) => state);
   !showModal && (document.body.style.overflow = "visible");
   let total = 0;
-  products.map((_product: any) => {
+  products.map((_product: IProductQ) => {
     return (total += _product.quantity);
   });
   return (
