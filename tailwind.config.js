@@ -27,7 +27,8 @@ export default {
         "quantity": "#D9D9D9",
         "addhover": "#e67d00",
         "addremovehover": "#eaeaea",
-        "red": "#EB2563"
+        "red": "#EB2563",
+        "green": "#8bc34a80"
       },
       animation: {
         "opacityin": "opacityIn 0.3s",
