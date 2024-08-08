@@ -1,6 +1,6 @@
-import logo from "../assets/image/logo.jpg";
-import minimal from "../assets/image/Minimal Shopping.jpg";
-import hero from "../assets/image/hero-section.jpg";
+import logo from "../../public/image/logo.jpg";
+import minimal from "../../public/image/Minimal Shopping.jpg";
+import hero from "../../public/image/hero-section.jpg";
 import Products from "../components/products";
 import CartIcon2 from "../components/icons/carticon2";
 import CartIcon3 from "../components/icons/carticon3";
