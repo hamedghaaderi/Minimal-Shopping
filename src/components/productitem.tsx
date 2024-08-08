@@ -2,6 +2,9 @@ import { useState } from "react";
 import StarIcon from "./icons/staricon";
 import { createPortal } from "react-dom";
 import SingleProduct from "./singleproduct";
+import useBasket from "../store/basket";
+import GreenHover from "./greenhover";
+import GrayHover from "./grayhover";
 
 interface IProductItem {
   name: string;
@@ -24,12 +27,23 @@ const ProductItem = ({
 }: IProductItem) => {
   const [showModal, setShowModal] = useState(false);
   !showModal && (document.body.style.overflow = "visible");
+  const [visible, setVisible] = useState(false);
+  const { products } = useBasket((state: any) => state);
+  const isExist: boolean = products.some(
+    (_product: any) => _product.id === id
+  );
 
   return (
     <>
       <div className="inline-block mb-8">
-        <div>
+        <div className="relative">
           <img
+            onMouseEnter={() => {
+              setVisible(true);
+            }}
+            onMouseLeave={() => {
+              setVisible(false);
+            }}
             src={src}
             alt="Product"
             width="320"
@@ -37,6 +51,8 @@ const ProductItem = ({
             className="rounded-2xl cursor-pointer"
             onClick={() => setShowModal(true)}
           />
+          {visible && isExist && <GreenHover />}
+          {visible && !isExist && <GrayHover />}
         </div>
         <div className="font-outfit relative mt-3">
           <div className="text-base text-gray">{name}</div>
